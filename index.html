@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<div class="wrapper">
+		<nav id="navbar">
+			<header>Javascript Tutorial</header>
+			<ul>
+				<li><a  class="nav-link" href="#An_Introduction_to_Javascript">An Introduction to Javascript</a></li>
+				<li><a  class="nav-link" href="#Javascript_Fundamentals">Javascript Fundamentals</a></li>
+				<li><a  class="nav-link" href="#Objects">Objects</a></li>
+				<li><a  class="nav-link" href="#Data_Types">Data Types</a></li>
+				<li><a  class="nav-link" href="#Classes">Classes</a></li>
+			</ul>
+		</nav>
+		<main id="main-doc">
+			<!---section 1--->
+			<section class="main-section" id="An_Introduction_to_Javascript">
+				<header>An Introduction to Javascript</header>
+				<p>JavaScript was initially created to “make web pages alive”.
+
+				<p>The programs in this language are called scripts. They can be written right in a web page’s HTML and run automatically as the page loads.</p>
+
+				<p>Scripts are provided and executed as plain text. They don’t need special preparation or compilation to run.</p>
+
+				<p>In this aspect, JavaScript is very different from another language called Java.</p>
+				<p>Today, JavaScript can execute not only in the browser, but also on the server, or actually on any device that has a special program called the JavaScript engine.</p>
+			</section>
+			<!---section 2--->
+			<section class="main-section" id="Javascript_Fundamentals">
+				<header>Javascript Fundamentals</header>
+				<p>JavaScript programs can be inserted into any part of an HTML document with the help of the &lt;script&gt;tag. </p>
+				<p>For instance:</p>
+				<pre>
+					<code>
+		&lt;!DOCTYPE HTML&gt;
+		&lt;html&gt;
+			&lt;body&gt;
+				&lt;p&gt;Before the script...&lt;/p&gt;
+				&lt;script&gt;
+					alert( &#039;Hello, world!&#039; );
+				&lt;/script&gt;
+				&lt;p&gt;...After the script.&lt;/p&gt;
+			&lt;/body&gt;
+		&lt;/html&gt;
+					</code>
+				</pre>
+
+			</section>
+			<!---section 3--->
+			<section class="main-section" id="Objects">
+				<header>Objects</header>
+				<p>As we know from the chapter Data types, there are seven data types in JavaScript. Six of them are called “primitive”, because their values contain only a single thing (be it a string or a number or whatever).
+
+				<p>In contrast, objects are used to store keyed collections of various data and more complex entities. In JavaScript, objects penetrate almost every aspect of the language. So we must understand them first before going in-depth anywhere else.</p>
+				<strong>Literals and properties</strong>
+				<pre>
+					<code>
+		let user = new Object(); // "object constructor" syntax
+		let user = {};  // "object literal" syntax
+					</code>
+				</pre>
+				<p>
+					In the user object, there are two properties:
+					<ul>
+
+						<li>The first property has the name "name" and the value "John".</li>
+						<li>The second one has the name "age" and the value 30.</li>
+					</ul>
+				</p>
+				<p>
+					The resulting user object can be imagined as a cabinet with two signed files labeled “name” and “age”. We can add, remove and read files from it any time.
+				</p>
+				<p>Property values are accessible using the dot notation:</p>
+				<pre>
+					<code>
+		// get property values of the object:
+		alert( user.name ); // John
+		alert( user.age ); // 30
+					</code>
+				</pre>
+			</section>
+			<!---section 4--->
+			<section class="main-section" id="Data_Types">
+				<header>Data Types</header>
+				<p>
+					JavaScript allows us to work with primitives (strings, numbers, etc.) as if they were objects. They also provide methods to call as such. We will study those soon, but first we’ll see how it works because, of course, primitives are not objects (and here we will make it even clearer).
+				</p>
+				<p>
+					Let’s look at the key distinctions between primitives and objects.
+				</p>
+				<ul>A primitive
+					<li>Is a value of a primitive type.</li>
+					<li>There are 6 primitive types: string, number, boolean, symbol, null and undefined.</li>
+				</ul>
+				<ul>An object
+					<li>Is capable of storing multiple values as properties.</li>
+					<li>Can be created with {}, for instance: {name: "John", age: 30}. There are other kinds of objects in JavaScript: functions, for example, are objects.</li>
+				</ul>
+				<p>One of the best things about objects is that we can store a function as one of its properties.</p>
+				<pre>
+					<code>
+		let john = {
+		  name: "John",
+		  sayHi: function() {
+		    alert("Hi buddy!");
+		  }
+		};
+
+		john.sayHi(); // Hi buddy!
+					</code>
+				</pre>
+		<p>So here we’ve made an object john with the method sayHi.<br><br>
+
+		Many built-in objects already exist, such as those that work with dates, errors, HTML elements, etc. They have different properties and methods.<br><br>
+
+		But, these features come with a cost!<br><br>
+
+		Objects are “heavier” than primitives. They require additional resources to support the internal machinery.</p>
+			</section>
+			<!---section 5--->
+			<section class="main-section" id="Classes">
+				<header>Classes</header>
+				<p>In practice, we often need to create many objects of the same kind, like users, or goods or whatever.<br><br>
+
+				As we already know from the chapter Constructor, operator "new", new function can help with that.<br><br>
+
+				But in the modern JavaScript, there’s a more advanced “class” construct, that introduces great new features which are useful for object-oriented programming.</p>
+				<p>The basic syntax is:</p>
+				<pre>
+					<code>
+		class MyClass {
+		  // class methods
+		  constructor() { ... }
+		  method1() { ... }
+		  method2() { ... }
+		  method3() { ... }
+		  ...
+		}
+					</code>
+				</pre>
+				<p>Then use new MyClass() to create a new object with all the listed methods.<br><br>
+
+				The constructor() method is called automatically by new, so we can initialize the object there.<br><br>
+
+				For example:</p>
+				<pre>
+					<code>
+		class User {
+
+		  constructor(name) {
+		    this.name = name;
+		  }
+
+		  sayHi() {
+		    alert(this.name);
+		  }
+
+		}
+
+		// Usage:
+		let user = new User("John");
+		user.sayHi();
+					</code>
+				</pre>
+			</section>
+			
+		
+		</main>
+	</div>
+
+</body>
+</html>
